@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function HomeIcon() {
   return (
@@ -67,10 +67,89 @@ const navItems = [
   },
 ];
 
+function smoothScrollTo(targetY, duration = 1000, onComplete) {
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function easeInOutCubic(t) {
+    return t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function animation(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeInOutCubic(progress);
+
+    window.scrollTo(0, startY + distance * easedProgress);
+
+    if (progress < 1) {
+      requestAnimationFrame(animation);
+    } else if (onComplete) {
+      onComplete();
+    }
+  }
+
+  requestAnimationFrame(animation);
+}
+
 function Navbar() {
   const [activeItem, setActiveItem] = useState("inicio");
+  const isProgrammaticScroll = useRef(false);
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isProgrammaticScroll.current) return;
+
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection?.target?.id) {
+          setActiveItem(visibleSection.target.id);
+        }
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: [0.05, 0.2, 0.5],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   const activeIndex = navItems.findIndex((item) => item.id === activeItem);
+
+  function handleNavClick(event, item) {
+    event.preventDefault();
+
+    const target = document.getElementById(item.id);
+
+    if (!target) return;
+
+    isProgrammaticScroll.current = true;
+    setActiveItem(item.id);
+
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+
+    smoothScrollTo(targetPosition, 1000, () => {
+      setTimeout(() => {
+        isProgrammaticScroll.current = false;
+        setActiveItem(item.id);
+      }, 120);
+    });
+
+    window.history.replaceState(null, "", item.href);
+  }
 
   return (
     <header className="bottom-nav" aria-label="Navegación principal">
@@ -90,7 +169,7 @@ function Navbar() {
             className={`bottom-nav__item ${
               activeItem === item.id ? "is-active" : ""
             }`}
-            onClick={() => setActiveItem(item.id)}
+            onClick={(event) => handleNavClick(event, item)}
             aria-current={activeItem === item.id ? "page" : undefined}
           >
             <span className="bottom-nav__icon">{item.icon}</span>

@@ -11,7 +11,7 @@ function Footer() {
   const whatsappUrl = `https://wa.me/${raceInfo.whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="contacto">
       <div className="site-footer__emblem" aria-hidden="true">
         ✦
       </div>
