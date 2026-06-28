@@ -5,6 +5,7 @@ import RaceInfo from "./sections/RaceInfo.jsx";
 import Packages from "./sections/Packages.jsx";
 import RouteMap from "./sections/RouteMap.jsx";
 import Contact from "./sections/Contact.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <RouteMap />
         <Contact />
       </main>
+
+      <Footer />
     </>
   );
 }

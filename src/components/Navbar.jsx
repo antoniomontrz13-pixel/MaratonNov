@@ -54,10 +54,10 @@ const navItems = [
     icon: <PackageIcon />,
   },
   {
-    id: "ruta",
-    label: "Ruta",
-    href: "#ruta",
-    icon: <RouteIcon />,
+  id: "ruta",
+  label: "Ubicación",
+  href: "#ruta",
+  icon: <RouteIcon />,
   },
   {
     id: "contacto",
