@@ -67,3 +67,15 @@ export const raceHighlights = [
     description: "Punto de encuentro ideal para una experiencia deportiva al aire libre.",
   },
 ];
+
+export const routeInfo = {
+  locationName: "Parque Metropolitano de León",
+  locationDescription:
+    "Punto de encuentro para la carrera en León, Guanajuato, México.",
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Parque%20Metropolitano%20de%20Le%C3%B3n%2C%20Le%C3%B3n%2C%20Guanajuato%2C%20M%C3%A9xico&output=embed",
+  weather: {
+    latitude: 21.125,
+    longitude: -101.686,
+  },
+};
