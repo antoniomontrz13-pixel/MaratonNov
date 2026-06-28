@@ -426,3 +426,135 @@ main {
     font-size: 0.68rem;
   }
 }
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.race-info {
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(61, 108, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(245, 167, 66, 0.1), transparent 28%),
+    var(--color-bg);
+}
+
+.race-info__header {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.race-info__header h2 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.race-info__header p {
+  margin: 18px 0 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.race-info__main-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-border);
+}
+
+.race-info__main-card div {
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(14px);
+}
+
+.race-info__label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-accent-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.race-info__main-card strong {
+  color: var(--color-white);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.race-info__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.race-info__card {
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  backdrop-filter: blur(14px);
+}
+
+.race-info__card span {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.race-info__card h3 {
+  margin: 18px 0 10px;
+  color: var(--color-white);
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.race-info__card p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .race-info__main-card {
+    grid-template-columns: 1fr;
+  }
+
+  .race-info__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .race-info__header {
+    text-align: left;
+  }
+
+  .race-info__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-info__main-card div,
+  .race-info__card {
+    padding: 22px;
+  }
+}

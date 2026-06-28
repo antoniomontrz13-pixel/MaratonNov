@@ -44,3 +44,26 @@ export const racePackages = [
       "Hola, quiero información para inscribirme a La Estelar. Me interesa el Paquete Interestelar.",
   },
 ];
+
+export const raceHighlights = [
+  {
+    title: "Distancias",
+    value: raceDistances.join(" / "),
+    description: "Rutas pensadas para corredores principiantes e intermedios.",
+  },
+  {
+    title: "Experiencia",
+    value: "Temática espacial",
+    description: "Ambiente visual inspirado en el espacio, la energía y el tiempo.",
+  },
+  {
+    title: "Pet Friendly",
+    value: "Mascotas bienvenidas",
+    description: "Una carrera para disfrutar también con tu compañero de cuatro patas.",
+  },
+  {
+    title: "Ubicación",
+    value: raceInfo.location,
+    description: "Punto de encuentro ideal para una experiencia deportiva al aire libre.",
+  },
+];

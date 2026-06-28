@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./sections/Hero.jsx";
+import RaceInfo from "./sections/RaceInfo.jsx";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 
       <main>
         <Hero />
+        <RaceInfo />
       </main>
     </>
   );
