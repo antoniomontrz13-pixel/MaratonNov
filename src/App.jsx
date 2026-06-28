@@ -1,14 +1,10 @@
 import React from "react";
+import Hero from "./sections/Hero.jsx";
 
 function App() {
   return (
     <main>
-      <section className="placeholder-screen">
-        <div className="container">
-          <h1>Maratón Interestelar</h1>
-          <p>Sitio en construcción</p>
-        </div>
-      </section>
+      <Hero />
     </main>
   );
 }
