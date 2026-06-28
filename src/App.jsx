@@ -4,6 +4,7 @@ import Hero from "./sections/Hero.jsx";
 import RaceInfo from "./sections/RaceInfo.jsx";
 import Packages from "./sections/Packages.jsx";
 import RouteMap from "./sections/RouteMap.jsx";
+import Contact from "./sections/Contact.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <RaceInfo />
         <Packages />
         <RouteMap />
+        <Contact />
       </main>
     </>
   );
