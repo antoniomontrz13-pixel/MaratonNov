@@ -1,6 +1,6 @@
 export const raceInfo = {
   name: "La Estelar",
-  subtitle: "carrera espacial pet friendly",
+  subtitle: "Carrera espacial · Pet Friendly",
   description:
     "Una carrera temática inspirada en el espacio, el tiempo y la energía de una experiencia interestelar.",
 
@@ -11,7 +11,7 @@ export const raceInfo = {
   whatsappNumber: "524771331637",
 
   primaryButtonText: "Ver paquetes",
-  secondaryButtonText: "Contactar por WhatsApp",
+  secondaryButtonText: "Inscribirme por WhatsApp",
 };
 
 export const raceDistances = [

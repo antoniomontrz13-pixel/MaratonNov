@@ -10,7 +10,10 @@ function Hero() {
 
   return (
     <section className="hero" id="inicio">
-      <div className="container hero__content">
+      <div className="hero__orb hero__orb--one"></div>
+      <div className="hero__orb hero__orb--two"></div>
+
+      <div className="container hero__content animate-fade-up">
         <p className="hero__eyebrow">
           Carrera temática · {raceDistances.join(" / ")}
         </p>
